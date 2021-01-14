@@ -28,8 +28,11 @@ module.exports = {
         icon: "src/favicon.png",
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: "768f99fe8ba0069d9b7b0a466ddf2a",
+      },
+    },
   ],
 }
