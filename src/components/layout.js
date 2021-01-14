@@ -1,16 +1,24 @@
-import React from "react"
-import Header from "./header"
-import Helmet from "react-helmet"
-import { Global, css } from "@emotion/react"
+import React from "react";
+import Header from "./header";
+import Helmet from "react-helmet";
+import { Global, css } from "@emotion/react";
 
-const Layout = props => {
+const Layout = (props) => {
   return (
     <>
       <Global
         styles={css`
           html {
             font-size: 62.5%;
+            box-sizing: border-box;
           }
+
+          *,
+          *:before,
+          *:after {
+            box-sizing: inherit;
+          }
+
           body {
             font-size: 18px;
             font-size: 1.8rem;
@@ -53,7 +61,7 @@ const Layout = props => {
       <Header />
       {props.children}
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
