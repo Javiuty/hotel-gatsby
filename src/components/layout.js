@@ -3,8 +3,16 @@ import Header from "./header";
 import Helmet from "react-helmet";
 import { Global, css } from "@emotion/react";
 import Footer from "./footer";
+import useSeo from "../hooks/use-seo";
 
 const Layout = (props) => {
+  const seo = useSeo();
+
+  const {
+    siteName,
+    fallbackSeo: { description, title },
+  } = seo;
+
   return (
     <>
       <Global
@@ -47,7 +55,8 @@ const Layout = (props) => {
         `}
       />
       <Helmet>
-        <title>Gatsby Hotel</title>
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
@@ -61,7 +70,7 @@ const Layout = (props) => {
       </Helmet>
       <Header />
       {props.children}
-      <Footer />
+      <Footer title={title} />
     </>
   );
 };
